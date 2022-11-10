@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		body {
+           
+            font-family: "Lucida Console", Helvetica, sans-serif; color: rgb(12, 29, 126);
+			padding: 10px 0;
+			border: 5px dotted rgb(94, 38, 248)
+			;
+			text-align: center;
+		}
+        header{
+            font-family: "Impact"; color: rgb(0, 247, 255);
+        }
+        
+	</style>
+    <header>
+        <h1>Convert Integers to RGB</h1>
+        <br>
+      </header>
+    
+	<script>
+        function convert()
+        {
+            var red = id1.value
+            var green = id2.value
+            var blue = id3.value
+            var rgbString = "rgb(" + red + "," + green + "," + blue + ")"
+            console.log(rgbString)
+            document.body.style.backgroundColor = rgbString;
+            divIdAnswer.innerHTML+= "The rgb-value of this color is " + rgbString + " and the hex-value of this color is " 
+        }
+        function getHex(red, green, blue)
+        {
+            
+            let redresult = ""
+            let greenresult = ""
+            let blueresult = ""
+            // hexaString = hexaString.split("");
+            // hexaString = hexaString.reverse();
+
+            // let decimal = 0;
+            // let numberOfDigits = hexaString.length;
+            //change num1 to red
+            while(red >= 0)
+            {
+                let remainder = red % 16
+                red = Math.floor(red/16)
+                if(remainder == 10)
+                {
+                    remainder = "A"
+                }
+                if(remainder == 11)
+                {
+                    remainder = "B"
+                }
+                if(remainder == 12)
+                {
+                    remainder = "C"
+                }
+                if(remainder == 13)
+                {
+                    remainder = "D"
+                }
+                if(remainder == 14)
+                {
+                    remainder = "E"
+                }
+                if(remainder == 15)
+                {
+                    remainder = "F"
+                }
+                else{
+                    redresult += remainder
+                }
+                
+            }
+            while(green >= 0)
+            {
+                let remainder = green % 16
+                green = Math.floor(green/16)
+                if(remainder == 10)
+                {
+                    remainder = "A"
+                }
+                if(remainder == 11)
+                {
+                    remainder = "B"
+                }
+                if(remainder == 12)
+                {
+                    remainder = "C"
+                }
+                if(remainder == 13)
+                {
+                    remainder = "D"
+                }
+                if(remainder == 14)
+                {
+                    remainder = "E"
+                }
+                if(remainder == 15)
+                {
+                    remainder = "F"
+                }
+                else{
+                    greenresult += remainder
+                }
+                
+            }
+            while(red >= 0)
+            {
+                let remainder = red % 16
+                red = Math.floor(red/16)
+                if(remainder == 10)
+                {
+                    remainder = "A"
+                }
+                if(remainder == 11)
+                {
+                    remainder = "B"
+                }
+                if(remainder == 12)
+                {
+                    remainder = "C"
+                }
+                if(remainder == 13)
+                {
+                    remainder = "D"
+                }
+                if(remainder == 14)
+                {
+                    remainder = "E"
+                }
+                if(remainder == 15)
+                {
+                    remainder = "F"
+                }
+                else{
+                    redresult += remainder
+                }
+                
+            }
+            redresult = reverse(redresult)
+            return redresult
+        }
+        function reverse(result)
+        {
+            return result.split("").reverse().join("");
+        }
+        
+        
+
+	</script>
+</head>
+<body>
+    
+    <input type="text" id="id1">● Red value (0-255)</input>
+    <br>
+    <input type="text" id="id2">● Green value (0-255)</input>
+    <br>
+    <input type="text" id="id3">● Blue value (0-255)</input>
+    <br>
+ 
+    <input type="button" value="Convert to RGB" onclick="convert()">
+    <br>
+    <div id="divIdAnswer"></div>
+   
+</body>
+</html>
