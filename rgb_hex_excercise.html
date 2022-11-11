@@ -23,15 +23,20 @@
       </header>
     
 	<script>
-        function convert()
+        function convert(redresult,greenresult,blueresult)
         {
             var red = id1.value
             var green = id2.value
             var blue = id3.value
+            // var redresult
+            // var greenresult
+            // var blueresult
             var rgbString = "rgb(" + red + "," + green + "," + blue + ")"
             console.log(rgbString)
             document.body.style.backgroundColor = rgbString;
-            divIdAnswer.innerHTML+= "The rgb-value of this color is " + rgbString + " and the hex-value of this color is " 
+            divIdAnswer.innerHTML = ""
+            divIdAnswer.innerHTML+= "The rgb-value of this color is " + rgbString + " and the hex-value of this color is #" 
+            getHex(red, green, blue)
         }
         function getHex(red, green, blue)
         {
@@ -45,7 +50,7 @@
             // let decimal = 0;
             // let numberOfDigits = hexaString.length;
             //change num1 to red
-            while(red >= 0)
+            if(red >= 0)
             {
                 let remainder = red % 16
                 red = Math.floor(red/16)
@@ -76,9 +81,9 @@
                 else{
                     redresult += remainder
                 }
-                
+                divIdAnswer.innerHTML += redresult 
             }
-            while(green >= 0)
+            if(green >= 0)
             {
                 let remainder = green % 16
                 green = Math.floor(green/16)
@@ -106,15 +111,16 @@
                 {
                     remainder = "F"
                 }
+                
                 else{
                     greenresult += remainder
                 }
-                
+                divIdAnswer.innerHTML += greenresult
             }
-            while(red >= 0)
+            if(blue >= 0)
             {
-                let remainder = red % 16
-                red = Math.floor(red/16)
+                let remainder = blue % 16
+                blue = Math.floor(blue/16)
                 if(remainder == 10)
                 {
                     remainder = "A"
@@ -140,16 +146,24 @@
                     remainder = "F"
                 }
                 else{
-                    redresult += remainder
+                   blueresult += remainder
                 }
+                divIdAnswer.innerHTML += blueresult
                 
             }
-            redresult = reverse(redresult)
-            return redresult
+            // redresult = reverse(redresult)
+            // greenresult = reverse(greenresult)
+            // blueresult = reverse(blueresult)
+            // 
+            // return redresult
+            // return greenresult
+            // return blueresult
         }
-        function reverse(result)
+        function reverse(redresult,greenresult,blueresult)
         {
-            return result.split("").reverse().join("");
+            return redresult.split("").reverse().join("");
+            return greenresult.split("").reverse().join("");
+            return blueresult.split("").reverse().join("");
         }
         
         
