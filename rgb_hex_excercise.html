@@ -25,6 +25,48 @@
 	<script>
         function convert(redresult,greenresult,blueresult)
         {
+            
+        }
+
+        function decimalToHex(decimalNumber){
+
+            var decimal = decimalNumber
+            
+                let remainder = decimal % 16
+                
+                if(remainder == 10)
+                {
+                    remainder = "A"
+                }
+                if(remainder == 11)
+                {
+                    remainder = "B"
+                }
+                if(remainder == 12)
+                {
+                    remainder = "C"
+                }
+                if(remainder == 13)
+                {
+                    remainder = "D"
+                }
+                if(remainder == 14)
+                {
+                    remainder = "E"
+                }
+                if(remainder == 15)
+                {
+                    remainder = "F"
+                }
+                else{
+                    decimal += remainder
+                }
+                decimal = Math.floor(decimal/16)
+            
+            return decimal
+        }
+        function getHex(decimal)
+        {
             var red = id1.value
             var green = id2.value
             var blue = id3.value
@@ -35,129 +77,23 @@
             console.log(rgbString)
             document.body.style.backgroundColor = rgbString;
             divIdAnswer.innerHTML = ""
+           
             divIdAnswer.innerHTML+= "The rgb-value of this color is " + rgbString + " and the hex-value of this color is #" 
-            getHex(red, green, blue)
-        }
-        function getHex(red, green, blue)
-        {
+            
             
             let redresult = ""
             let greenresult = ""
             let blueresult = ""
-            // hexaString = hexaString.split("");
-            // hexaString = hexaString.reverse();
-
-            // let decimal = 0;
-            // let numberOfDigits = hexaString.length;
-            //change num1 to red
-            if(red >= 0)
-            {
-                let remainder = red % 16
-                red = Math.floor(red/16)
-                if(remainder == 10)
-                {
-                    remainder = "A"
-                }
-                if(remainder == 11)
-                {
-                    remainder = "B"
-                }
-                if(remainder == 12)
-                {
-                    remainder = "C"
-                }
-                if(remainder == 13)
-                {
-                    remainder = "D"
-                }
-                if(remainder == 14)
-                {
-                    remainder = "E"
-                }
-                if(remainder == 15)
-                {
-                    remainder = "F"
-                }
-                else{
-                    redresult += remainder
-                }
-                divIdAnswer.innerHTML += redresult 
-            }
-            if(green >= 0)
-            {
-                let remainder = green % 16
-                green = Math.floor(green/16)
-                if(remainder == 10)
-                {
-                    remainder = "A"
-                }
-                if(remainder == 11)
-                {
-                    remainder = "B"
-                }
-                if(remainder == 12)
-                {
-                    remainder = "C"
-                }
-                if(remainder == 13)
-                {
-                    remainder = "D"
-                }
-                if(remainder == 14)
-                {
-                    remainder = "E"
-                }
-                if(remainder == 15)
-                {
-                    remainder = "F"
-                }
+            decimalToHex(red)
+            divIdAnswer+=decimal
+            decimalToHex(green)
+            divIdAnswer+=decimal
+            decimalToHex(blue)
+            divIdAnswer+=decimal
+            
+            
                 
-                else{
-                    greenresult += remainder
-                }
-                divIdAnswer.innerHTML += greenresult
-            }
-            if(blue >= 0)
-            {
-                let remainder = blue % 16
-                blue = Math.floor(blue/16)
-                if(remainder == 10)
-                {
-                    remainder = "A"
-                }
-                if(remainder == 11)
-                {
-                    remainder = "B"
-                }
-                if(remainder == 12)
-                {
-                    remainder = "C"
-                }
-                if(remainder == 13)
-                {
-                    remainder = "D"
-                }
-                if(remainder == 14)
-                {
-                    remainder = "E"
-                }
-                if(remainder == 15)
-                {
-                    remainder = "F"
-                }
-                else{
-                   blueresult += remainder
-                }
-                divIdAnswer.innerHTML += blueresult
-                
-            }
-            // redresult = reverse(redresult)
-            // greenresult = reverse(greenresult)
-            // blueresult = reverse(blueresult)
-            // 
-            // return redresult
-            // return greenresult
-            // return blueresult
+          
         }
         function reverse(redresult,greenresult,blueresult)
         {
@@ -179,7 +115,7 @@
     <input type="text" id="id3">● Blue value (0-255)</input>
     <br>
  
-    <input type="button" value="Convert to RGB" onclick="convert()">
+    <input type="button" value="Convert to RGB" onclick="getHex()">
     <br>
     <div id="divIdAnswer"></div>
    
