@@ -8,8 +8,8 @@
            
             font-family: "Lucida Console", Helvetica, sans-serif; color: rgb(12, 29, 126);
 			padding: 10px 0;
-			border: 5px dotted rgb(94, 38, 248)
-			;
+			border: 5px dotted rgb(94, 38, 248);
+			
 			text-align: center;
 		}
         header{
@@ -23,78 +23,144 @@
       </header>
     
 	<script>
-        function convert(redresult,greenresult,blueresult)
-        {
-            
-        }
-
-        function decimalToHex(decimalNumber){
-
-            var decimal = decimalNumber
-            
-                let remainder = decimal % 10
-                
-                if(remainder == 10)
-                {
-                    remainder = "A"
-                }
-                if(remainder == 11)
-                {
-                    remainder = "B"
-                }
-                if(remainder == 12)
-                {
-                    remainder = "C"
-                }
-                if(remainder == 13)
-                {
-                    remainder = "D"
-                }
-                if(remainder == 14)
-                {
-                    remainder = "E"
-                }
-                if(remainder == 15)
-                {
-                    remainder = "F"
-                }
-                else{
-                    decimal += remainder
-                }
-                decimal = Math.floor(decimal/16)
-            
-            return decimal
-        }
-        function getHex(decimal)
+        
+        function getHex(decimal1,decimal2,decimal3)
         {
             var red = id1.value
             var green = id2.value
             var blue = id3.value
+            
             // var redresult
             // var greenresult
             // var blueresult
+            decimalToHex(red, green, blue)
             var rgbString = "rgb(" + red + "," + green + "," + blue + ")"
             console.log(rgbString)
+            console.log(decimal1)
             document.body.style.backgroundColor = rgbString;
             divIdAnswer.innerHTML = ""
-           
-            divIdAnswer.innerHTML+= "The rgb-value of this color is " + rgbString + " and the hex-value of this color is #" 
             
+            divIdAnswer.innerHTML+= "The rgb-value of this color is " + rgbString + " and the hex-value of this color is #" + decimal1 + "" + decimal2 + "" + decimal3
             
-            let redresult = ""
-            let greenresult = ""
-            let blueresult = ""
-            decimalToHex(red)
-            divIdAnswer+=decimal
-            decimalToHex(green)
-            divIdAnswer+=decimal
-            decimalToHex(blue)
-            divIdAnswer+=decimal
-            
-            
-                
-          
         }
+            
+        function decimalToHex(red, green,blue)
+        {
+
+           var decimal1 = red
+           var decimal2 = green
+           var decimal3 = blue
+
+            //     //1
+                 if(red != 0 && green != 0 && blue != 0)
+                 {
+                     let remainder = decimal1 % 16
+                
+                     if(remainder == 10)
+                     {
+                         remainder = "A"
+                     }
+                     if(remainder == 11)
+                     {
+                         remainder = "B"
+                     }
+                     if(remainder == 12)
+                     {
+                         remainder = "C"
+                     }
+                     if(remainder == 13)
+                     {
+                         remainder = "D"
+                     }
+                     if(remainder == 14)
+                     {
+                         remainder = "E"
+                     }
+                     if(remainder == 15)
+                     {
+                         remainder = "F"
+                     }
+                     else{
+                         decimal1 += remainder
+                     }
+
+                     decimal1 = Math.floor(decimal1/16)
+            //         //2
+                     let remainder2 = decimal2 % 16
+                     if(remainder2 == 10)
+                     {
+                         remainder2 = "A"
+                     }
+                     if(remainder2 == 11)
+                     {
+                         remainder2 = "B"
+                     }
+                     if(remainder2 == 12)
+                     {
+                         remainder2 = "C"
+                     }
+                     if(remainder2 == 13)
+                     {
+                         remainder2 = "D"
+                     }
+                     if(remainder2 == 14)
+                     {
+                         remainder2 = "E"
+                     }
+                     if(remainder2 == 15)
+                     {
+                         remainder2 = "F"
+                    }
+                    else{
+                        decimal2 += remainder2
+                    }
+
+                    decimal2 = Math.floor(decimal2/16)
+                    //3
+                    let remainder3 = decimal3 % 16
+                    
+                    if(remainder3 == 10)
+                    {
+                        remainder3 = "A"
+                    }
+                    if(remainder3 == 11)
+                    {
+                        remainder3 = "B"
+                    }
+                    if(remainder3 == 12)
+                    {
+                        remainder3 = "C"
+                    }
+                    if(remainder3 == 13)
+                    {
+                        remainder3 = "D"
+                    }
+                    if(remainder3 == 14)
+                    {
+                        remainder3 = "E"
+                    }
+                    if(remainder3 == 15)
+                    {
+                        remainder3 = "F"
+                    }
+                    else{
+                        decimal3 += remainder3
+                    }
+
+                    decimal3 = Math.floor(decimal3/16)
+                    return decimal1
+                    return decimal2
+                    return decimal3
+                }
+                
+
+                
+            
+          
+        
+        
+        }
+      
         function reverse(redresult,greenresult,blueresult)
         {
             return redresult.split("").reverse().join("");
